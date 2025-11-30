@@ -75,6 +75,63 @@ h1 {
     flex-wrap: wrap;
 }
 
+/* 手机屏幕优化 */
+@media (max-width: 800px) {
+    .game-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .game-info {
+        width: 100%;
+        max-width: 300px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 15px;
+    }
+    
+    .info-section {
+        margin: 0;
+    }
+    
+    /* 分数和等级区域 */
+    .info-section:nth-child(1) {
+        grid-column: 1 / -1;
+    }
+    
+    /* 下一个方块预览 */
+    .info-section:nth-child(2) {
+        grid-column: 1;
+        grid-row: 2;
+    }
+    
+    /* 游戏控制按钮 */
+    .info-section:nth-child(3) {
+        grid-column: 2;
+        grid-row: 2;
+    }
+    
+    /* 游戏说明 */
+    .info-section:nth-child(4) {
+        grid-column: 1 / -1;
+        grid-row: 3;
+    }
+    
+    /* 调整控制按钮大小 */
+    .control-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    
+    /* 调整下一个方块预览大小 */
+    #nextCanvas {
+        width: 100px;
+        height: 100px;
+    }
+}
+
 /* 游戏主区域 */
 .game-main {
     position: relative;
@@ -618,9 +675,34 @@ h1 {
     }
 }
 
-/* 隐藏类用于大屏幕 */
+/* 虚拟按键在所有屏幕尺寸下都显示 */
 @media (min-width: 801px) {
     .virtual-controls {
-        display: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+        padding: 0 20px;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    
+    /* 调整大屏幕上的方向键大小 */
+    .d-pad {
+        grid-template-columns: repeat(3, 60px);
+        grid-template-rows: repeat(2, 60px);
+        gap: 8px;
+    }
+    
+    .d-pad-btn {
+        font-size: 24px;
+    }
+    
+    /* 调整大屏幕上的操作键大小 */
+    .action-btn {
+        padding: 15px 25px;
+        font-size: 16px;
+        min-width: 100px;
+        height: 60px;
     }
 }
