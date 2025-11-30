@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>俄罗斯方块</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>俄罗斯方块</h1>
+        
+        <div class="game-content">
+            <!-- 游戏主区域 -->
+            <div class="game-main">
+                <canvas id="gameCanvas" width="300" height="600"></canvas>
+            </div>
+            
+            <!-- 游戏信息区域 -->
+            <div class="game-info">
+                <!-- 分数和等级 -->
+                <div class="info-section">
+                    <div class="info-item">
+                        <span class="label">分数</span>
+                        <span id="score" class="value">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">等级</span>
+                        <span id="level" class="value">1</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">行数</span>
+                        <span id="lines" class="value">0</span>
+                    </div>
+                </div>
+                
+                <!-- 下一个方块预览 -->
+                <div class="info-section">
+                    <h3>下一个</h3>
+                    <canvas id="nextCanvas" width="120" height="120"></canvas>
+                </div>
+                
+                <!-- 游戏控制按钮 -->
+                <div class="info-section">
+                    <h3>控制</h3>
+                    <div class="controls">
+                        <button id="startBtn" class="control-btn primary">开始游戏</button>
+                        <button id="pauseBtn" class="control-btn" disabled>暂停</button>
+                        <button id="resetBtn" class="control-btn">重置游戏</button>
+                    </div>
+                </div>
+                
+                <!-- 游戏说明 -->
+                <div class="info-section">
+                    <h3>操作说明</h3>
+                    <div class="instructions">
+                        <p><strong>方向键</strong></p>
+                        <p>← → 移动方块</p>
+                        <p>↓ 加速下落</p>
+                        <p>↑ 旋转方块</p>
+                        <p><strong>空格</strong> 直接下落</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 游戏结束界面 -->
+    <div id="gameOver" class="game-over hidden">
+        <h2>游戏结束</h2>
+        <p>最终分数: <span id="finalScore">0</span></p>
+        <button id="playAgainBtn" class="control-btn primary">再玩一次</button>
+    </div>
+    
+    <!-- 虚拟按键区域 -->
+    <div class="virtual-controls">
+        <div class="controls-left">
+            <!-- 方向键区域 -->
+            <div class="d-pad">
+                <button id="btnUp" class="d-pad-btn up">↑</button>
+                <button id="btnLeft" class="d-pad-btn left">←</button>
+                <button id="btnDown" class="d-pad-btn down">↓</button>
+                <button id="btnRight" class="d-pad-btn right">→</button>
+            </div>
+        </div>
+        <div class="controls-right">
+            <!-- 操作键区域 -->
+            <button id="btnRotate" class="action-btn rotate">旋转</button>
+            <button id="btnDrop" class="action-btn drop">下落</button>
+        </div>
+    </div>
+</div>
+    
+<script src="game.js"></script>
+</body>
+</html>
